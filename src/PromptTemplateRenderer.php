@@ -14,7 +14,7 @@ final class PromptTemplateRenderer
     ) {}
 
     /**
-     * @param  view-string  $viewName
+     * @param  string  $viewName
      * @param  array<string, mixed>  $data
      */
     public function render(string $viewName, array $data = []): string
@@ -23,10 +23,12 @@ final class PromptTemplateRenderer
             throw new InvalidArgumentException("Prompt view [{$viewName}] was not found.");
         }
 
-        return View::make($viewName, $data)->render();
+        /** @var view-string $existingViewName */
+        $existingViewName = $viewName;
+
+        return View::make($existingViewName, $data)->render();
     }
 
-    /** @param view-string $fallbackView */
     public function renderFallback(string $fallbackView): string
     {
         return trim($this->render($fallbackView));

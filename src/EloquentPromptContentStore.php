@@ -20,6 +20,8 @@ final class EloquentPromptContentStore implements PromptContentStore
     public function findByKey(string $key): ?StoredPromptContent
     {
         $modelClass = $this->modelClass;
+        // The configured model is only constrained to Model, so PHPStan cannot infer its key column.
+        // @phpstan-ignore argument.type
         $record = $modelClass::query()->where('key', $key)->first();
 
         if (! $record instanceof Model) {
@@ -40,6 +42,8 @@ final class EloquentPromptContentStore implements PromptContentStore
     {
         $modelClass = $this->modelClass;
 
+        // The configured model is only constrained to Model, so PHPStan cannot infer its fillable columns.
+        // @phpstan-ignore argument.type
         $modelClass::query()->updateOrCreate(
             ['key' => $key],
             ['content' => $content],
@@ -56,6 +60,8 @@ final class EloquentPromptContentStore implements PromptContentStore
     {
         $modelClass = $this->modelClass;
 
+        // The configured model is only constrained to Model, so PHPStan cannot infer its key column.
+        // @phpstan-ignore argument.type
         $modelClass::query()->where('key', $key)->delete();
     }
 }

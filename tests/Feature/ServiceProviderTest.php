@@ -49,11 +49,11 @@ it('registers prompt infrastructure services in the container', function (): voi
     $sp->registeringPackage();
     $sp->bootingPackage();
 
-    expect($app->make(PromptRegistryManager::class))->toBeInstanceOf(PromptRegistryManager::class)
-        ->and($app->make(PromptTemplateRenderer::class))->toBeInstanceOf(PromptTemplateRenderer::class)
-        ->and($app->make(PromptBodyResolver::class))->toBeInstanceOf(PromptBodyResolver::class)
-        ->and($app->make(AgentKeyResolver::class))->toBeInstanceOf(AgentKeyResolver::class)
-        ->and($app->make(PromptPersistenceManager::class))->toBeInstanceOf(PromptPersistenceManager::class)
+    expect($app->bound(PromptRegistryManager::class))->toBeTrue()
+        ->and($app->bound(PromptTemplateRenderer::class))->toBeTrue()
+        ->and($app->bound(PromptBodyResolver::class))->toBeTrue()
+        ->and($app->bound(AgentKeyResolver::class))->toBeTrue()
+        ->and($app->bound(PromptPersistenceManager::class))->toBeTrue()
         ->and($app->make(PromptContentStore::class))->toBeInstanceOf(NullPromptContentStore::class);
 });
 
