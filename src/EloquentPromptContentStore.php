@@ -42,11 +42,31 @@ final class EloquentPromptContentStore implements PromptContentStore
     {
         $modelClass = $this->modelClass;
 
-        // The configured model is only constrained to Model, so PHPStan cannot infer its fillable columns.
-        // @phpstan-ignore argument.type
-        $modelClass::query()->updateOrCreate(
-            ['key' => $key],
-            ['content' => $content],
+        // The configured model is only constrained to Model, so use query-level upsert
+        // for these package-defined columns rather than model-property typed mass assignment.
+        $model = new $modelClass;
+        $attributes = ['key' => $key, 'content' => $content];
+        $updatedColumns = ['content'];
+
+        if ($model->usesTimestamps()) {
+            $timestamp = $model->freshTimestampString();
+            $createdAt = $model->getCreatedAtColumn();
+            $updatedAt = $model->getUpdatedAtColumn();
+
+            if ($createdAt !== null) {
+                $attributes[$createdAt] = $timestamp;
+            }
+
+            if ($updatedAt !== null) {
+                $attributes[$updatedAt] = $timestamp;
+                $updatedColumns[] = $updatedAt;
+            }
+        }
+
+        $model->getConnection()->table($model->getTable())->upsert(
+            [$attributes],
+            ['key'],
+            $updatedColumns,
         );
 
         return new StoredPromptContent(
