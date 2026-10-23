@@ -4,7 +4,7 @@
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "ai", "prompt", "agent", "registry"],
-    "homepage": "https://github.com/illuma-law/laravel-prompt-registry",
+    "homepage": "https://github.com/eloquage/laravel-prompt-registry",
     "authors": [
         {
             "name": "illuma-law",
