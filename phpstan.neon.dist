@@ -10,3 +10,8 @@ parameters:
     checkOctaneCompatibility: true
     checkModelProperties: true
     reportUnmatchedIgnoredErrors: false
+    excludePaths:
+        analyse:
+            - tests/Pest.php
+    peststan:
+        testCaseClass: IllumaLaw\PromptRegistry\Tests\TestCase
