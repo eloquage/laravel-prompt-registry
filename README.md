@@ -1,7 +1,7 @@
 # Laravel Prompt Registry
 
-[![Run Tests](https://github.com/illuma-law/laravel-prompt-registry/actions/workflows/run-tests.yml/badge.svg)](https://github.com/illuma-law/laravel-prompt-registry/actions/workflows/run-tests.yml)
-[![PHPStan](https://github.com/illuma-law/laravel-prompt-registry/actions/workflows/phpstan.yml/badge.svg)](https://github.com/illuma-law/laravel-prompt-registry/actions/workflows/phpstan.yml)
+[![Run Tests](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/run-tests.yml/badge.svg)](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/run-tests.yml)
+[![PHPStan](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/phpstan.yml/badge.svg)](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/phpstan.yml)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/illuma-law/laravel-prompt-registry.svg?style=flat-square)](https://packagist.org/packages/illuma-law/laravel-prompt-registry)
 [![Total Downloads](https://img.shields.io/packagist/dt/illuma-law/laravel-prompt-registry.svg?style=flat-square)](https://packagist.org/packages/illuma-law/laravel-prompt-registry)
 [![License](https://img.shields.io/packagist/l/illuma-law/laravel-prompt-registry.svg?style=flat-square)](https://packagist.org/packages/illuma-law/laravel-prompt-registry)
