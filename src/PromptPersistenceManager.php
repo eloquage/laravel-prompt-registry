@@ -15,6 +15,18 @@ final class PromptPersistenceManager
         private readonly PromptBodyResolver $bodyResolver,
     ) {}
 
+    /**
+     * @return array{
+     *     key: string,
+     *     name: string,
+     *     description: string,
+     *     fallback_view: string,
+     *     content: string,
+     *     source: 'database'|'fallback_view',
+     *     persisted: bool,
+     *     empty_persisted_override: bool
+     * }
+     */
     public function editableByKey(string $key): array
     {
         return $this->bodyResolver->editableByKey($key);

@@ -8,11 +8,11 @@ use InvalidArgumentException;
 
 class PromptRegistryManager
 {
-    /** @var array<string, array{agent: class-string, key: string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}> */
+    /** @var array<string, array{agent: class-string, key: string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}> */
     protected array $prompts = [];
 
     /**
-     * @param  array{agent: class-string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}  $definition
+     * @param  array{agent: class-string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}  $definition
      */
     public function register(string $key, array $definition): void
     {
@@ -20,7 +20,7 @@ class PromptRegistryManager
     }
 
     /**
-     * @param  array<string, array{agent: class-string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}>  $definitions
+     * @param  array<string, array{agent: class-string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}>  $definitions
      */
     public function registerMany(array $definitions): void
     {
@@ -30,7 +30,7 @@ class PromptRegistryManager
     }
 
     /**
-     * @return array<string, array{agent: class-string, key: string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}>
+     * @return array<string, array{agent: class-string, key: string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}>
      */
     public function definitionsByKey(): array
     {
@@ -38,7 +38,7 @@ class PromptRegistryManager
     }
 
     /**
-     * @return array<int, array{agent: class-string, key: string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}>
+     * @return array<int, array{agent: class-string, key: string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}>
      */
     public function all(): array
     {
@@ -47,7 +47,7 @@ class PromptRegistryManager
 
     /**
      * @param  class-string  $agentClass
-     * @return array{agent: class-string, key: string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}
+     * @return array{agent: class-string, key: string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}
      *
      * @throws InvalidArgumentException
      */
@@ -63,7 +63,7 @@ class PromptRegistryManager
     }
 
     /**
-     * @return array{agent: class-string, key: string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}
+     * @return array{agent: class-string, key: string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}
      *
      * @throws InvalidArgumentException
      */

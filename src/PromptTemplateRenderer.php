@@ -16,6 +16,10 @@ final class PromptTemplateRenderer
     /**
      * @param  array<string, mixed>  $data
      */
+    /**
+     * @param  view-string  $viewName
+     * @param  array<string, mixed>  $data
+     */
     public function render(string $viewName, array $data = []): string
     {
         if (! View::exists($viewName)) {
@@ -25,6 +29,7 @@ final class PromptTemplateRenderer
         return View::make($viewName, $data)->render();
     }
 
+    /** @param view-string $fallbackView */
     public function renderFallback(string $fallbackView): string
     {
         return trim($this->render($fallbackView));
