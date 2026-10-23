@@ -222,8 +222,11 @@ it('is bound to the container as a singleton', function (): void {
     $a = app('prompt-registry');
     $b = app('prompt-registry');
 
-    expect($a)->not->toBeNull()
-        ->and($a)->toBe($b);
+    if (! ($a instanceof PromptRegistryManager) || ! ($b instanceof PromptRegistryManager)) {
+        throw new RuntimeException('The prompt registry manager must be bound.');
+    }
+
+    expect($a)->toBe($b);
 });
 
 it('can be resolved via the PromptRegistry facade', function (): void {

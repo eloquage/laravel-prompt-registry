@@ -3,7 +3,13 @@
     "description": "Dynamic AI agent prompt registration and retrieval for Laravel.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["laravel", "ai", "prompt", "agent", "registry"],
+    "keywords": [
+        "laravel",
+        "ai",
+        "prompt",
+        "agent",
+        "registry"
+    ],
     "homepage": "https://github.com/eloquage/laravel-prompt-registry",
     "authors": [
         {
@@ -22,6 +28,7 @@
     "require-dev": {
         "larastan/larastan": "^3.0",
         "laravel/pint": "^1.14",
+        "mrpunyapal/peststan": "^0.2.12",
         "nunomaduro/collision": "^8.8",
         "orchestra/testbench": "^10.1",
         "pestphp/pest": "^4.0",

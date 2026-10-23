@@ -8,8 +8,7 @@ use IllumaLaw\PromptRegistry\PromptRegistryManager;
 it('resolves short keys from the registry when an agent is registered', function (): void {
     $manager = new PromptRegistryManager;
 
-    /** @var class-string $agent */
-    $agent = 'App\\Ai\\Agents\\ContentCreatorAgent';
+    $agent = ContentCreatorAgent::class;
 
     $manager->register('agents.content_creator', [
         'agent' => $agent,
@@ -27,8 +26,7 @@ it('falls back to snake_case agent basename when not registered', function (): v
     $manager = new PromptRegistryManager;
     $resolver = new AgentKeyResolver($manager);
 
-    /** @var class-string $agent */
-    $agent = 'App\\Ai\\Agents\\LegalDraftMemoAgent';
+    $agent = LegalDraftMemoAgent::class;
 
     expect($resolver->shortKeyForAgent($agent))->toBe('legal_draft_memo');
 });
@@ -36,8 +34,7 @@ it('falls back to snake_case agent basename when not registered', function (): v
 it('delegates default tier resolution to the registry manager', function (): void {
     $manager = new PromptRegistryManager;
 
-    /** @var class-string $agent */
-    $agent = 'App\\Ai\\Agents\\CaseReportCompilerAgent';
+    $agent = CaseReportCompilerAgent::class;
 
     $manager->register('agents.case_report_compiler', [
         'agent' => $agent,
@@ -51,3 +48,9 @@ it('delegates default tier resolution to the registry manager', function (): voi
 
     expect($resolver->defaultPrimaryTierForAgent($agent))->toBe('extended');
 });
+
+final class ContentCreatorAgent {}
+
+final class LegalDraftMemoAgent {}
+
+final class CaseReportCompilerAgent {}

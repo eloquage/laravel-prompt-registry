@@ -6,6 +6,7 @@ namespace IllumaLaw\PromptRegistry;
 
 use IllumaLaw\PromptRegistry\Contracts\PromptContentStore;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -24,9 +25,11 @@ class PromptRegistryServiceProvider extends PackageServiceProvider
             return new PromptRegistryManager;
         });
 
-        $this->app->singleton(PromptRegistryManager::class, function (): PromptRegistryManager {
-            /** @var PromptRegistryManager $manager */
-            $manager = $this->app->make('prompt-registry');
+        $this->app->singleton(PromptRegistryManager::class, function (Application $app): PromptRegistryManager {
+            $manager = $app->make('prompt-registry');
+            if (! ($manager instanceof PromptRegistryManager)) {
+                throw new \LogicException('The prompt registry manager binding is invalid.');
+            }
 
             return $manager;
         });
@@ -46,31 +49,31 @@ class PromptRegistryServiceProvider extends PackageServiceProvider
             $this->app->bindIf(PromptContentStore::class, NullPromptContentStore::class);
         }
 
-        $this->app->singleton(PromptTemplateRenderer::class, function (): PromptTemplateRenderer {
+        $this->app->singleton(PromptTemplateRenderer::class, function (Application $app): PromptTemplateRenderer {
             return new PromptTemplateRenderer(
-                registry: $this->app->make(PromptRegistryManager::class),
+                registry: $app->make(PromptRegistryManager::class),
             );
         });
 
-        $this->app->singleton(PromptBodyResolver::class, function (): PromptBodyResolver {
+        $this->app->singleton(PromptBodyResolver::class, function (Application $app): PromptBodyResolver {
             return new PromptBodyResolver(
-                registry: $this->app->make(PromptRegistryManager::class),
-                contentStore: $this->app->make(PromptContentStore::class),
-                renderer: $this->app->make(PromptTemplateRenderer::class),
+                registry: $app->make(PromptRegistryManager::class),
+                contentStore: $app->make(PromptContentStore::class),
+                renderer: $app->make(PromptTemplateRenderer::class),
             );
         });
 
-        $this->app->singleton(AgentKeyResolver::class, function (): AgentKeyResolver {
+        $this->app->singleton(AgentKeyResolver::class, function (Application $app): AgentKeyResolver {
             return new AgentKeyResolver(
-                registry: $this->app->make(PromptRegistryManager::class),
+                registry: $app->make(PromptRegistryManager::class),
             );
         });
 
-        $this->app->singleton(PromptPersistenceManager::class, function (): PromptPersistenceManager {
+        $this->app->singleton(PromptPersistenceManager::class, function (Application $app): PromptPersistenceManager {
             return new PromptPersistenceManager(
-                registry: $this->app->make(PromptRegistryManager::class),
-                contentStore: $this->app->make(PromptContentStore::class),
-                bodyResolver: $this->app->make(PromptBodyResolver::class),
+                registry: $app->make(PromptRegistryManager::class),
+                contentStore: $app->make(PromptContentStore::class),
+                bodyResolver: $app->make(PromptBodyResolver::class),
             );
         });
     }

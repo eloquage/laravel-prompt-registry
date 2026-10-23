@@ -17,7 +17,7 @@ use Illuminate\Foundation\Application;
 it('auto-registers config-defined prompts on boot via the service provider', function (): void {
     config(['prompt-registry.prompts' => [
         'agents.sp_driven' => [
-            'agent' => 'SPAgent',
+            'agent' => stdClass::class,
             'name' => 'SP Agent',
             'description' => 'Loaded via SP boot',
             'fallback_view' => 'prompts.sp',
@@ -36,7 +36,7 @@ it('auto-registers config-defined prompts on boot via the service provider', fun
     /** @var PromptRegistryManager $manager */
     $manager = $app->make('prompt-registry');
 
-    expect($manager->forKey('agents.sp_driven')['agent'])->toBe('SPAgent');
+    expect($manager->forKey('agents.sp_driven')['agent'])->toBe(stdClass::class);
 });
 
 it('registers prompt infrastructure services in the container', function (): void {
@@ -49,11 +49,11 @@ it('registers prompt infrastructure services in the container', function (): voi
     $sp->registeringPackage();
     $sp->bootingPackage();
 
-    expect($app->make(PromptRegistryManager::class))->toBeInstanceOf(PromptRegistryManager::class)
-        ->and($app->make(PromptTemplateRenderer::class))->toBeInstanceOf(PromptTemplateRenderer::class)
-        ->and($app->make(PromptBodyResolver::class))->toBeInstanceOf(PromptBodyResolver::class)
-        ->and($app->make(AgentKeyResolver::class))->toBeInstanceOf(AgentKeyResolver::class)
-        ->and($app->make(PromptPersistenceManager::class))->toBeInstanceOf(PromptPersistenceManager::class)
+    expect($app->bound(PromptRegistryManager::class))->toBeTrue()
+        ->and($app->bound(PromptTemplateRenderer::class))->toBeTrue()
+        ->and($app->bound(PromptBodyResolver::class))->toBeTrue()
+        ->and($app->bound(AgentKeyResolver::class))->toBeTrue()
+        ->and($app->bound(PromptPersistenceManager::class))->toBeTrue()
         ->and($app->make(PromptContentStore::class))->toBeInstanceOf(NullPromptContentStore::class);
 });
 

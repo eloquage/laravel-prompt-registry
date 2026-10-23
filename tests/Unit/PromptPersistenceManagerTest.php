@@ -12,7 +12,7 @@ use IllumaLaw\PromptRegistry\ValueObjects\StoredPromptContent;
 it('persists trimmed content and reverts empty content to fallback state', function (): void {
     $registry = new PromptRegistryManager;
     $registry->register('agents.example', [
-        'agent' => 'ExampleAgent',
+        'agent' => stdClass::class,
         'name' => 'Example',
         'description' => 'Example prompt',
         'fallback_view' => 'welcome',

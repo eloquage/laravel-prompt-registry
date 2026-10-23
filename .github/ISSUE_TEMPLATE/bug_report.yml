@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible problem with this package
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Include the smallest reproducible example you can.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Package version
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: PHP and Laravel versions
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
