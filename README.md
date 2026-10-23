@@ -18,7 +18,7 @@ A Laravel package for registering AI agent metadata, resolving prompt content, a
 
 ```bash
 composer require illuma-law/laravel-prompt-registry
-php artisan vendor:publish --tag=laravel-prompt-registry-config
+php artisan vendor:publish --tag=prompt-registry-config
 ```
 
 Laravel discovers the service provider automatically. The publish command is optional if you only register definitions in a service provider.
