@@ -80,7 +80,7 @@ class PromptRegistryServiceProvider extends PackageServiceProvider
         /** @var PromptRegistryManager $manager */
         $manager = $this->app->make('prompt-registry');
 
-        /** @var array<string, array{agent: class-string, name: string, description: string, fallback_view: string, default_primary_tier?: 'standard'|'extended'}> $prompts */
+        /** @var array<string, array{agent: class-string, name: string, description: string, fallback_view: view-string, default_primary_tier?: 'standard'|'extended'}> $prompts */
         $prompts = config('prompt-registry.prompts', []);
 
         if ($prompts !== []) {

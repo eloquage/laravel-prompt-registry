@@ -14,9 +14,6 @@ final class PromptTemplateRenderer
     ) {}
 
     /**
-     * @param  array<string, mixed>  $data
-     */
-    /**
      * @param  view-string  $viewName
      * @param  array<string, mixed>  $data
      */
