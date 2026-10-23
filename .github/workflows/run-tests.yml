@@ -44,7 +44,6 @@ jobs:
             testbench: 10.*
             stability: prefer-stable
             os: ubuntu-latest
-        exclude:
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.os }}
 
