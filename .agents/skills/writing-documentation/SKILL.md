@@ -7,7 +7,7 @@ metadata:
 
 # Writing and documentation
 
-Write documentation for `illuma-law/laravel-prompt-registry` (Dynamic AI agent prompt registration and retrieval for Laravel.) that lets the intended reader complete a concrete task.
+Write documentation for `eloquage/laravel-prompt-registry` (Dynamic AI agent prompt registration and retrieval for Laravel.) that lets the intended reader complete a concrete task.
 
 ## Source and structure
 

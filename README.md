@@ -4,8 +4,8 @@
 
 [![Tests](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/run-tests.yml/badge.svg)](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/run-tests.yml)
 [![PHPStan](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/phpstan.yml/badge.svg)](https://github.com/eloquage/laravel-prompt-registry/actions/workflows/phpstan.yml)
-[![Latest Version](https://img.shields.io/packagist/v/illuma-law/laravel-prompt-registry.svg)](https://packagist.org/packages/illuma-law/laravel-prompt-registry)
-[![License](https://img.shields.io/packagist/l/illuma-law/laravel-prompt-registry.svg)](LICENSE)
+[![Latest Version](https://img.shields.io/packagist/v/eloquage/laravel-prompt-registry.svg)](https://packagist.org/packages/eloquage/laravel-prompt-registry)
+[![License](https://img.shields.io/packagist/l/eloquage/laravel-prompt-registry.svg)](LICENSE)
 
 A Laravel package for registering AI agent metadata, resolving prompt content, and selecting a default `standard` or `extended` model tier.
 
@@ -17,7 +17,7 @@ A Laravel package for registering AI agent metadata, resolving prompt content, a
 ## Install
 
 ```bash
-composer require illuma-law/laravel-prompt-registry
+composer require eloquage/laravel-prompt-registry
 php artisan vendor:publish --tag=prompt-registry-config
 ```
 
