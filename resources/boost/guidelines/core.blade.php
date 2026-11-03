@@ -1,4 +1,4 @@
-# illuma-law/laravel-prompt-registry
+# eloquage/laravel-prompt-registry
 
 Dynamic registry for AI agent prompt definitions. Register metadata (agent, name, view, tier) via config or programmatically.
 

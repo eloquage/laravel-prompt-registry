@@ -1,5 +1,5 @@
 {
-    "name": "illuma-law/laravel-prompt-registry",
+    "name": "eloquage/laravel-prompt-registry",
     "description": "Dynamic AI agent prompt registration and retrieval for Laravel.",
     "type": "library",
     "license": "MIT",

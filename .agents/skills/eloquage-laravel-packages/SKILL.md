@@ -7,7 +7,7 @@ metadata:
 
 # Laravel package development
 
-Use this skill when changing this Composer package: `illuma-law/laravel-prompt-registry` — Dynamic AI agent prompt registration and retrieval for Laravel.
+Use this skill when changing this Composer package: `eloquage/laravel-prompt-registry` — Dynamic AI agent prompt registration and retrieval for Laravel.
 
 ## Package context
 

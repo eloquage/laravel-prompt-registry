@@ -7,7 +7,7 @@ metadata:
 
 # GitHub README
 
-For `illuma-law/laravel-prompt-registry` (Dynamic AI agent prompt registration and retrieval for Laravel.), make the README useful to a developer deciding whether to install the package and then trying it in a real application.
+For `eloquage/laravel-prompt-registry` (Dynamic AI agent prompt registration and retrieval for Laravel.), make the README useful to a developer deciding whether to install the package and then trying it in a real application.
 
 ## Ground every claim
 
