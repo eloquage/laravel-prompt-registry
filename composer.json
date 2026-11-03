@@ -52,7 +52,7 @@
     "scripts": {
         "test": "vendor/bin/pest --coverage",
         "test:unit": "vendor/bin/pest --coverage --group=unit",
-        "analyse": "vendor/bin/phpstan analyse",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=512M",
         "format": "vendor/bin/pint"
     },
     "extra": {
